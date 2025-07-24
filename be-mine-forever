@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be Mine Forever?</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #fff0f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 28px;
+      text-align: center;
+      margin: 10px;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      font-size: 18px;
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #yesBtn {
+      background-color: #ff69b4;
+      color: white;
+    }
+    #noBtn {
+      background-color: #d3d3d3;
+      color: black;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hey... I've been meaning to ask you something important.</h1>
+  <h1>Will you be mine forever?</h1>
+
+  <div class="buttons">
+    <button id="yesBtn">Yes 🥰</button>
+    <button id="noBtn">No 😒</button>
+  </div>
+
+  <h1 id="response" class="hidden"></h1>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const response = document.getElementById('response');
+
+    let noClicks = 0;
+
+    yesBtn.addEventListener('click', () => {
+      document.querySelector('.buttons').style.display = 'none';
+      response.textContent = "Forever starts now 💞⏳";
+      response.classList.remove('hidden');
+    });
+
+    noBtn.addEventListener('click', () => {
+      noClicks++;
+      if (noClicks === 1) {
+        noBtn.textContent = "no? 🤔";
+      } else if (noClicks === 2) {
+        noBtn.textContent = "tf you mean no 👀";
+      } else {
+        document.querySelector('.buttons').style.display = 'none';
+        response.textContent = "system error";
+        response.classList.remove('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>
